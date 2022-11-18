@@ -1,0 +1,43 @@
+﻿.c-svgIcon.c-iconLinks .c-urlPicker {
+  display: flex;
+  flex: auto;
+  padding-right: 15px;
+}
+
+.c-svgIcon.c-iconLinks .c-urlPicker > ng-form {
+  width: 100%;
+}
+
+.c-svgIcon.c-iconLinks .c-urlPicker .umb-node-preview {
+  background-color: #fff;
+  border-radius: 3px;
+  padding: 0 8px;
+  height: 32px;
+}
+
+.c-svgIcon.c-iconLinks .c-urlPicker .umb-node-preview__content {
+  font-size: 13px;
+  line-height: 20px;
+  padding-top: 8px;
+  margin: 0;
+}
+
+.c-svgIcon.c-iconLinks .c-urlPicker .umb-node-preview__name {
+  margin: 0;
+}
+
+.c-svgIcon.c-iconLinks .c-urlPicker .umb-node-preview__description {
+  display: none;
+}
+
+.c-svgIcon.c-iconLinks .c-urlPicker .umb-node-preview__action {
+  position: relative;
+  top: 2px;
+}
+
+.c-svgIcon.c-iconLinks .c-dropdown {
+  display: flex;
+  flex: auto;
+  max-width: 200px;
+  padding-right: 15px;
+}

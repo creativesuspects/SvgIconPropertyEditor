@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+  <PropertyGroup>
+    <TargetFrameworks>net6.0;net7.0</TargetFrameworks>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <id>SvgIconPropertyEditor</id>
+    <Company>Creative Suspects</Company>
+    <Authors>Arjan Hoogervorst</Authors>
+    <title>SVG Icon Property Editor</title>
+    <description>A property editor for icon picker and links/buttons with icons.</description>
+    <Copyright>Copyright © $([System.DateTime]::UtcNow.ToString(`yyyy`))</Copyright>
+    <PackageIcon>icon.png</PackageIcon>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net6.0'">
+    <PackageReference Include="Umbraco.Cms.Web.Website" Version="10.0.0" />
+    <PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="10.0.0" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net7.0'">
+    <PackageReference Include="Umbraco.Cms.Web.Website" Version="11.0.0-rc3" />
+    <PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="11.0.0-rc3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="icon.png" Pack="true" PackagePath="" />
+  </ItemGroup>
+</Project>

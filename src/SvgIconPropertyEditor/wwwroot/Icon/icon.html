@@ -1,0 +1,77 @@
+﻿<div ng-controller="SvgIconPropertyEditor.Icon.Controller as vm" class="c-svgIcon c-simpleIcon">
+  <ng-form name="svgIconForm">
+    <div ui-sortable="vm.sortableOptions" ng-model="model.value" class="list-view-layouts">
+      <div class="c-listItem list-view-layout" ng-repeat="item in model.value">
+        <i class="icon-navigation list-view-layout__sort-handle ui-sortable-handle" ng-class="{ 'is-hidden':  model.config.maxNumber == 1 }"></i>
+        <div ng-show="!item.symbolId" class="list-view-link__icon-add list-view-link__icon-view-wide">
+          <a ng-click="addIcon(item)" href="" class="c-addIconButton" prevent-default>
+            <i class="icon icon-add"></i> Icon
+          </a>
+        </div>
+        <div ng-show="item.symbolId">
+          <a ng-click="addIcon(item)" title="{{item.symbolId}}" class="c-iconButton" href="" prevent-default>
+            <span ng-bind-html="trustAsHtml(vm.getIconHtml(item))"></span>
+          </a>
+        </div>
+        <div class="list-view-layout__remove c-removeButton" style="margin-left: auto;">
+          <a title="Remove" ng-click="vm.showPrompt(item)">
+            <i class="icon-trash"></i>
+          </a>
+          <umb-confirm-action ng-if="item.deletePrompt" direction="left" on-confirm="vm.remove($index, item)" on-cancel="vm.hidePrompt(item)"></umb-confirm-action>
+        </div>
+      </div>
+
+      <input type="hidden" name="minCount" ng-model="model.value" />
+      <input type="hidden" name="maxCount" ng-model="model.value" />
+      <a href="" ng-show="!model.config.maxNumber || model.value.length < model.config.maxNumber" class="list-view-add-layout" ng-click="vm.add()">Add icon</a>
+
+      <div ng-messages="svgIconForm.minCount.$error" show-validation-on-submit>
+        <div class="help-inline" ng-message="minCount">
+          <localize key="validation_minCount">You need to add at least</localize> {{model.config.minNumber}} <localize
+            key="validation_items">items</localize>
+        </div>
+      </div>
+      <div ng-messages="svgIconForm.maxCount.$error" show-validation-on-submit>
+        <div class="help-inline" ng-message="maxCount">
+          <localize key="validation_maxCount">You can only have</localize> {{model.config.maxNumber}} <localize
+            key="validation_itemsSelected">items selected</localize>
+        </div>
+      </div>
+    </div>
+  </ng-form>
+
+  <div class="umb-contentpicker__min-max-help">
+    <!-- Both min and max items -->
+    <span
+      ng-if="model.config.minNumber && model.config.maxNumber && model.config.minNumber !== model.config.maxNumber">
+      <span ng-if="model.value.length < model.config.maxNumber">Add between {{model.config.minNumber}} and
+        {{model.config.maxNumber}} items</span>
+      <span ng-if="model.value.length > model.config.maxNumber">
+        <localize key="validation_maxCount">You can only have</localize> {{model.config.maxNumber}} <localize
+          key="validation_itemsSelected"> items selected</localize>
+      </span>
+    </span>
+    <!-- Equal min and max -->
+    <span
+      ng-if="model.config.minNumber && model.config.maxNumber && model.config.minNumber === model.config.maxNumber">
+      <span ng-if="model.value.length < model.config.maxNumber">Add {{model.config.minNumber - model.value.length}}
+        item(s)</span>
+      <span ng-if="model.value.length > model.config.maxNumber">
+        <localize key="validation_maxCount">You can only have</localize> {{model.config.maxNumber}} <localize
+          key="validation_itemsSelected"> items selected</localize>
+      </span>
+    </span>
+    <!-- Only max -->
+    <span ng-if="!model.config.minNumber && model.config.maxNumber">
+      <span ng-if="model.value.length < model.config.maxNumber">Add up to {{model.config.maxNumber}} items</span>
+      <span ng-if="model.valye.length > model.config.maxNumber">
+        <localize key="validation_maxCount">You can only have</localize> {{model.config.maxNumber}} <localize
+          key="validation_itemsSelected">items selected</localize>
+      </span>
+    </span>
+    <!-- Only min -->
+    <span ng-if="model.config.minNumber && !model.config.maxNumber && model.value.length < model.config.minNumber">
+      Add at least {{model.config.minNumber}} item(s)
+    </span>
+  </div>
+</div>

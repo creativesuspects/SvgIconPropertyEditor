@@ -1,0 +1,236 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.TestPage>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+	Layout = "Master.cshtml";
+}
+
+<style>
+	svg {
+		width: 64px;
+		height: 64px;
+	}
+
+	tr td:first-child {
+		width: 150px;
+	}
+
+	tr td:last-child {
+		width: 400px;
+	}
+
+	svg[class*="has-text-"] {
+		fill: currentColor;
+	}
+</style>
+
+<div class="pt-4 pb-4">
+	<h2 class="is-size-3 mb-2 has-text-primary has-text-weight-bold">Icon (single)</h2>
+
+	@if (Model.IconSingle != null && Model.IconSingle.HasIcon)
+	{
+		<table class="table is-bordered is-striped">
+			<thead>
+				<tr>
+					<th>Property</th>
+					<th>Value</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>SymbolId</td>
+					<td>@Model.IconSingle.SymbolId</td>
+				</tr>
+				<tr>
+					<td>SvgPath</td>
+					<td>@Model.IconSingle.SvgPath</td>
+				</tr>
+				<tr>
+					<td>Icon (SVG)</td>
+					<td>@Html.Raw(Model.IconSingle.Svg)</td>
+				</tr>
+				<tr>
+					<td>Icon (SVG sprite)</td>
+					<td>@Model.IconSingle.ToHtml("has-text-danger")</td>
+				</tr>
+			</tbody>
+		</table>
+	}
+</div>
+
+<div class="pt-4 pb-4">
+	<h2 class="is-size-3 mb-2 has-text-primary has-text-weight-bold">Icon (multiple)</h2>
+
+	@if (Model.IconMultiple != null)
+	{
+		foreach (var icon in Model.IconMultiple.Where(x => x.HasIcon))
+		{
+			<table class="table is-bordered is-striped">
+				<thead>
+					<tr>
+						<th>Property</th>
+						<th>Value</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>SymbolId</td>
+						<td>@icon.SymbolId</td>
+					</tr>
+					<tr>
+						<td>SvgPath</td>
+						<td>@icon.SvgPath</td>
+					</tr>
+					<tr>
+						<td>Icon (SVG)</td>
+						<td>@Html.Raw(icon.Svg)</td>
+					</tr>
+					<tr>
+						<td>Icon (SVG sprite)</td>
+						<td>@icon.ToHtml("has-text-danger")</td>
+					</tr>
+				</tbody>
+			</table>
+		}
+	}
+</div>
+
+<div class="pt-4 pb-4">
+	<h2 class="is-size-3 mb-2 has-text-primary has-text-weight-bold">Buttons (single)</h2>
+
+	@if (Model.ButtonsSingle != null)
+	{
+		<p><strong>Value: </strong> @Model.ButtonsSingle</p>
+	}
+</div>
+
+<div class="pt-4 pb-4">
+	<h2 class="is-size-3 mb-2 has-text-primary has-text-weight-bold">Buttons (multiple)</h2>
+
+	@if (Model.ButtonsMultiple != null)
+	{
+		foreach (var button in Model.ButtonsMultiple)
+		{
+			<p><strong>Value: </strong> @button</p>
+		}
+	}
+</div>
+
+<div class="pt-4 pb-4">
+	<h2 class="is-size-3 mb-2 has-text-primary has-text-weight-bold">Links (single)</h2>
+
+	@if (Model.LinksSingle != null && Model.LinksSingle.HasLink)
+	{
+		<table class="table is-bordered is-striped">
+			<thead>
+				<tr>
+					<th>Property</th>
+					<th>Value</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>SymbolId</td>
+					<td>@Model.LinksSingle.SymbolId</td>
+				</tr>
+				<tr>
+					<td>SvgPath</td>
+					<td>@Model.LinksSingle.SvgPath</td>
+				</tr>
+				<tr>
+					<td>PrimaryClass</td>
+					<td>@Model.LinksSingle.PrimaryClass</td>
+				</tr>
+				<tr>
+					<td>SecondaryClass</td>
+					<td>@Model.LinksSingle.SecondaryClass</td>
+				</tr>
+				<tr>
+					<td>Icon (SVG)</td>
+					<td>@Html.Raw(Model.LinksSingle.Svg)</td>
+				</tr>
+				<tr>
+					<td>Icon (SVG sprite)</td>
+					<td>@Model.LinksSingle.IconToHtml("has-text-danger")</td>
+				</tr>
+				<tr>
+					<td>Link</td>
+					<td><a href="@Model.LinksSingle.Link!.Url" target="@Model.LinksSingle.Link!.Target" class="@Model.LinksSingle.PrimaryClass @Model.LinksSingle.SecondaryClass">@Model.LinksSingle.Link!.Name</a></td>
+				</tr>
+				<tr>
+					<td>Link.Name</td>
+					<td>@Html.Raw(Model.LinksSingle.Link!.Name)</td>
+				</tr>
+				<tr>
+					<td>Link.Url</td>
+					<td>@Html.Raw(Model.LinksSingle.Link!.Url)</td>
+				</tr>
+				<tr>
+					<td>Link.Target</td>
+					<td>@Html.Raw(Model.LinksSingle.Link!.Target)</td>
+				</tr>
+			</tbody>
+		</table>
+	}
+</div>
+
+<div class="pt-4 pb-4">
+	<h2 class="is-size-3 mb-2 has-text-primary has-text-weight-bold">Links (multiple)</h2>
+
+	@if (Model.LinksMultiple != null)
+	{
+		foreach (var link in Model.LinksMultiple.Where(x => x.HasLink))
+		{
+			<table class="table is-bordered is-striped">
+				<thead>
+					<tr>
+						<th>Property</th>
+						<th>Value</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>SymbolId</td>
+						<td>@link.SymbolId</td>
+					</tr>
+					<tr>
+						<td>SvgPath</td>
+						<td>@link.SvgPath</td>
+					</tr>
+					<tr>
+						<td>PrimaryClass</td>
+						<td>@link.PrimaryClass</td>
+					</tr>
+					<tr>
+						<td>SecondaryClass</td>
+						<td>@link.SecondaryClass</td>
+					</tr>
+					<tr>
+						<td>Icon (SVG)</td>
+						<td>@Html.Raw(link.Svg)</td>
+					</tr>
+					<tr>
+						<td>Icon (SVG sprite)</td>
+						<td>@link.IconToHtml("has-text-danger")</td>
+					</tr>
+					<tr>
+						<td>Link</td>
+						<td><a href="@link.Link!.Url" target="@link.Link!.Target" class="@link.PrimaryClass @link.SecondaryClass">@link.Link!.Name</a></td>
+					</tr>
+					<tr>
+						<td>Link.Name</td>
+						<td>@Html.Raw(link.Link!.Name)</td>
+					</tr>
+					<tr>
+						<td>Link.Url</td>
+						<td>@Html.Raw(link.Link!.Url)</td>
+					</tr>
+					<tr>
+						<td>Link.Target</td>
+						<td>@Html.Raw(link.Link!.Target)</td>
+					</tr>
+				</tbody>
+			</table>
+		}
+	}
+</div>

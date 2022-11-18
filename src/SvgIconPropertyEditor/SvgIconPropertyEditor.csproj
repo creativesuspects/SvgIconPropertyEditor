@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+  <PropertyGroup>
+    <StaticWebAssetBasePath>App_Plugins/SvgIconPropertyEditor</StaticWebAssetBasePath>
+
+    <TargetFrameworks>net6.0;net7.0</TargetFrameworks>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <id>SvgIconPropertyEditor</id>
+    <Company>Creative Suspects</Company>
+    <Authors>Arjan Hoogervorst</Authors>
+    <title>SVG Icon Property Editor</title>
+    <description>A property editor for icon picker and links/buttons with icons.</description>
+    <Copyright>Copyright © $([System.DateTime]::UtcNow.ToString(`yyyy`))</Copyright>
+    <PackageIcon>icon.png</PackageIcon>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove=".prettierrc.json" />
+    <Content Remove="bundleconfig.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include=".prettierrc.json" />
+    <None Include="bundleconfig.json" />
+    <None Include="icon.png" Pack="true" PackagePath="" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SvgIconPropertyEditor.Core\SvgIconPropertyEditor.Core.csproj" />
+  </ItemGroup>
+</Project>

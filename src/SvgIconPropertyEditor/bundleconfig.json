@@ -1,0 +1,19 @@
+[
+  {
+    "outputFileName": "wwwroot/svgiconpropertyeditor.js",
+    "inputFiles": [ "wwwroot/*/*.js" ],
+    "minify": {
+      "enabled": false
+    }
+  },
+  {
+    "outputFileName": "wwwroot/svgiconpropertyeditor.css",
+    "inputFiles": [
+      "wwwroot/common.css",
+      "wwwroot/*/*.css"
+    ],
+    "minify": {
+      "enabled": false
+    }
+  }
+]

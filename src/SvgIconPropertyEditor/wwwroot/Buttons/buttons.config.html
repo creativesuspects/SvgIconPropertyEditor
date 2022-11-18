@@ -1,0 +1,41 @@
+﻿<div ng-controller="SvgIconPropertyEditor.Buttons.Config.Controller as vm" class="c-svgIcon c-iconButtons">
+  <div class="list-view-layouts" ui-sortable="vm.sortableOptions" ng-model="model.value">
+    <div class="list-view-layout" ng-repeat="item in model.value">
+      <i class="icon-navigation list-view-layout__sort-handle"></i>
+
+      <div ng-show="!item.svg">
+        <a ng-click="addIcon(item)" href="" class="c-addIconButton" prevent-default>
+          <i class="icon icon-add"></i> Icon
+        </a>
+      </div>
+      <div ng-show="item.svg" class="c-iconPreview">
+        <a ng-click="addIcon(item)" href="" prevent-default class="c-iconPreview__icon">
+          <span ng-bind-html="trustAsHtml(item.svg)"></span>
+        </a>
+        <div class="list-view-layout__remove c-removeButton c-iconPreview__remove">
+          <a title="Remove" ng-click="vm.removeIcon(item)">
+            <i class="icon-trash"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="list-view-layout__name">
+        <input type="text" ng-model="item.label" placeholder="Label..." class="-full-width-input" />
+      </div>
+      <div class="list-view-layout__name">
+        <input type="text" ng-model="item.value" placeholder="Value..." class="-full-width-input" />
+      </div>
+      <div>
+        <div class="list-view-layout__remove c-removeButton">
+          <a title="Remove" ng-click="vm.showPrompt(item)">
+            <i class="icon-trash"></i>
+          </a>
+          <umb-confirm-action ng-if="item.deletePrompt" direction="left" on-confirm="vm.remove($index, item)"
+            on-cancel="vm.hidePrompt(item)">
+          </umb-confirm-action>
+        </div>
+      </div>
+    </div>
+  </div>
+  <a href="" class="list-view-add-layout" ng-click="vm.add()">Add button</a>
+</div>

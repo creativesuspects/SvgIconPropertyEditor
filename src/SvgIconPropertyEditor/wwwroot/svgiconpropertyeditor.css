@@ -1,0 +1,197 @@
+.c-svgIcon .c-addIconButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none !important;
+  border: 1px dashed #bbbabf;
+  padding: 5px 8px;
+  margin-right: 15px;
+  width: 42px;
+}
+
+.c-svgIcon .c-addIconButton:hover {
+  color: #2152a3;
+  border-color: #2152a3;
+}
+
+.c-svgIcon .c-addIconButton i {
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.c-svgIcon .c-iconPreview {
+  display: flex;
+  width: 60px;
+  margin-right: 15px;
+}
+
+.c-svgIcon .c-iconPreview__icon {
+  border-radius: 3px;
+  background-color: #fff;
+  margin-right: 8px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.c-svgIcon .c-iconPreview__icon span {
+  width: 20px;
+  height: 20px;
+}
+
+.c-svgIcon .c-iconPreview__icon svg {
+  width: 100%;
+  height: 100%;
+  fill: #2152a3;
+}
+
+.c-svgIcon .c-iconPreview__remove {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.c-svgIcon .c-removeButton a {
+  height: 20px;
+}
+
+.c-svgIcon .c-removeButton i {
+  line-height: 20px;
+}
+
+.c-svgIcon .is-hidden {
+  pointer-events: none;
+  display: none;
+}
+
+.c-svgIcon .list-view-layout {
+  /* border: 1px solid #e9e9eb; */
+  /* background: #fff; */
+  border-radius: 3px;
+}
+
+.c-svgIcon.c-iconButtons {
+  margin-bottom: -10px;
+}
+
+.c-svgIcon.c-iconButtons .btn {
+  width: auto;
+  min-width: 50px;
+  margin: 0 10px 10px 0;
+  font-weight: 700;
+  color: #000;
+}
+
+.c-svgIcon.c-iconButtons .btn:hover {
+  color: #68676b;
+}
+
+.c-svgIcon.c-iconButtons .btn-wide {
+  width: auto;
+  min-width: 80px;
+  height: 80px;
+  font-size: 14px;
+}
+
+.c-svgIcon.c-iconButtons i {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5px auto;
+}
+
+.c-svgIcon.c-iconButtons i svg {
+  width: 100%;
+  height: 100%;
+  fill: #bbbbbb;
+}
+
+.c-svgIcon.c-iconButtons .btn-selection {
+  background-color: #f5c1bc;
+}
+
+.c-svgIcon.c-iconButtons .btn-selection i svg {
+  fill: #ffffff;
+}
+
+.c-svgIcon.c-simpleIcon .c-listItem {
+  display: flex;
+}
+
+.c-svgIcon.c-simpleIcon .c-iconButton {
+  display: flex;
+  width: 42px;
+  height: 42px;
+  background-color: #fff;
+  border-radius: 3px;
+  justify-content: center;
+  align-items: center;
+}
+
+.c-svgIcon.c-simpleIcon .c-iconButton span {
+  width: 32px;
+  height: 32px;
+}
+
+.c-svgIcon.c-simpleIcon .c-iconButton svg {
+  width: 100%;
+  height: 100%;
+  fill: #2152a3;
+}
+
+.c-svgIcon.c-iconPicker .umb-iconpicker svg {
+  width: 24px;
+  height: 24px;
+}
+
+.c-svgIcon.c-iconLinks .c-urlPicker {
+  display: flex;
+  flex: auto;
+  padding-right: 15px;
+}
+
+.c-svgIcon.c-iconLinks .c-urlPicker > ng-form {
+  width: 100%;
+}
+
+.c-svgIcon.c-iconLinks .c-urlPicker .umb-node-preview {
+  background-color: #fff;
+  border-radius: 3px;
+  padding: 0 8px;
+  height: 32px;
+}
+
+.c-svgIcon.c-iconLinks .c-urlPicker .umb-node-preview__content {
+  font-size: 13px;
+  line-height: 20px;
+  padding-top: 8px;
+  margin: 0;
+}
+
+.c-svgIcon.c-iconLinks .c-urlPicker .umb-node-preview__name {
+  margin: 0;
+}
+
+.c-svgIcon.c-iconLinks .c-urlPicker .umb-node-preview__description {
+  display: none;
+}
+
+.c-svgIcon.c-iconLinks .c-urlPicker .umb-node-preview__action {
+  position: relative;
+  top: 2px;
+}
+
+.c-svgIcon.c-iconLinks .c-dropdown {
+  display: flex;
+  flex: auto;
+  max-width: 200px;
+  padding-right: 15px;
+}
